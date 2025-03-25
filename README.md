@@ -1,50 +1,104 @@
-# Welcome to your Expo app 👋
+# TravelPrep 🧳✈️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![TravelPrep Logo](https://i.imgur.com/placeholder.png)
+*Replace with your actual logo image URL*
 
-## Get started
+## A Smart Packing List App for Travelers
 
-1. Install dependencies
+TravelPrep is a modern React Native mobile application that helps travelers organize their packing by providing an intuitive interface to create, categorize, and track items they need for their trips.
 
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://i.imgur.com/placeholder1.png" width="30%" alt="Home Screen" />
+  <img src="https://i.imgur.com/placeholder2.png" width="30%" alt="Packing List" />
+  <img src="https://i.imgur.com/placeholder3.png" width="30%" alt="Profile Screen" />
+</div>
+*Replace with your actual screenshot image URLs*
+
+## Features ✨
+
+- **Intuitive Landing Page** with quick access to app features
+- **Dynamic Packing List** with add, edit, and remove functionality
+- **Category-based Organization** (Essentials, Clothing, Electronics)
+- **Item Filtering** to focus on specific categories
+- **Multiple Sorting Options** (by name, category, or quantity)
+- **Packing Progress Tracking** with visual indicators
+- **Quantity Management** for each item
+- **User Profile** with stats and settings
+- **Clean, Modern UI** designed for a seamless user experience
+
+## Technologies Used 🛠️
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/)
+- [Expo Vector Icons](https://docs.expo.dev/guides/icons/)
+
+## Installation 📋
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/travelprep.git
+   cd travelprep
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
+## Running the App 🚀
 
+### Development Mode
+
+1. **Start the Expo development server**
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+2. **Run on Device/Simulator**
+   - Scan the QR code with the Expo Go app on your device
+   - Press `a` to open on Android emulator
+   - Press `i` to open on iOS simulator
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Building for Production
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. **Build for Android**
+   ```bash
+   eas build -p android
+   ```
 
-## Get a fresh project
+2. **Build for iOS**
+   ```bash
+   eas build -p ios
+   ```
 
-When you're ready, run:
+## How to Use 📱
 
-```bash
-npm run reset-project
-```
+1. **Start Screen**
+   - Launch the app to see the welcome screen
+   - Tap "Get Started" to proceed to the main app
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. **Adding Items**
+   - Use the input field at the top to add new items
+   - Select a category for each item when prompted
 
-## Learn more
+3. **Managing Your List**
+   - Filter items by tapping category pills
+   - Sort items using the sort options
+   - Toggle items as packed/unpacked by tapping the circle
+   - Adjust quantities using the +/- buttons
+   - Remove items by tapping the trash icon
 
-To learn more about developing your project with Expo, look at the following resources:
+4. **Profile**
+   - View your traveler profile
+   - See statistics about your packing habits
+   - Access app settings
+   - Log out to return to the start screen
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Project Structure 📁
