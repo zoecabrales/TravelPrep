@@ -1,24 +1,21 @@
 import { Tabs } from 'expo-router';
-
 import Ionicons from '@expo/vector-icons/Ionicons';
-
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-      tabBarActiveTintColor: '#ffd33d',
-      headerStyle: {
-      backgroundColor: '#25292e',
-    },
-      headerShadowVisible: false,
-      headerTintColor: '#fff',
-      tabBarStyle: {
-      backgroundColor: '#25292e',
-    },
-  }}
->
-
+        tabBarActiveTintColor: '#ffd33d',
+        headerStyle: {
+          backgroundColor: '#ffffff',
+        },
+        headerShadowVisible: false,
+        headerTintColor: '#000',
+        tabBarStyle: {
+          backgroundColor: '#ffffff',
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -29,11 +26,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="packing"
         options={{
-          title: 'About',
+          title: 'Packing List',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'information-circle' : 'information-circle-outline'} color={color} size={24}/>
+            <Ionicons name={focused ? 'briefcase' : 'briefcase-outline'} color={color} size={24} />
           ),
         }}
       />
