@@ -1,8 +1,4 @@
 # TravelPrep 🧳✈️
-
-![TravelPrep Logo](https://i.imgur.com/placeholder.png)
-*Replace with your actual logo image URL*
-
 ## A Smart Packing List App for Travelers
 
 TravelPrep is a modern React Native mobile application that helps travelers organize their packing by providing an intuitive interface to create, categorize, and track items they need for their trips.
@@ -96,9 +92,6 @@ TravelPrep is a modern React Native mobile application that helps travelers orga
    - Remove items by tapping the trash icon
 
 4. **Profile**
-   - View your traveler profile
-   - See statistics about your packing habits
-   - Access app settings
    - Log out to return to the start screen
 
 ## Project Structure 📁
