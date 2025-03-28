@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { usePackingStore } from '../stores/packingStore';
 
 // Import styles and interfaces
 import { styles } from './styles/PackingListStyles';
@@ -17,12 +18,21 @@ import { CategoryModal } from './CategoryModal';
 const INITIAL_ITEMS: PackingItem[] = [];
 
 export default function PackingListComponent() {
-  const [items, setItems] = useState<PackingItem[]>(INITIAL_ITEMS);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<PackingItem['category'] | 'All'>('All');
+  // Get state and actions from the store
+  const items = usePackingStore((state) => state.items);
+  const selectedCategory = usePackingStore((state) => state.selectedCategory);
+  const sortOption = usePackingStore((state) => state.sortOption);
+  const addItem = usePackingStore((state) => state.addItem);
+  const removeItem = usePackingStore((state) => state.removeItem);
+  const togglePacked = usePackingStore((state) => state.togglePacked);
+  const updateQuantity = usePackingStore((state) => state.updateQuantity);
+  const setSelectedCategory = usePackingStore((state) => state.setSelectedCategory);
+  const setSortOption = usePackingStore((state) => state.setSortOption);
+
+  // Local state for modal and new item
   const [newItemName, setNewItemName] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-  const [sortOption, setSortOption] = useState<'name' | 'category' | 'quantity'>('name');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredItems = items.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -43,12 +53,6 @@ export default function PackingListComponent() {
     }
   });
 
-  const addItem = () => {
-    if (newItemName.trim()) {
-      setModalVisible(true);
-    }
-  };
-
   const handleAddItemWithCategory = (category: PackingItem['category']) => {
     const newItem: PackingItem = {
       id: Date.now().toString(),
@@ -57,28 +61,18 @@ export default function PackingListComponent() {
       packed: false,
       quantity: 1
     };
-    setItems([...items, newItem]);
+    addItem(newItem);
     setNewItemName('');
     setModalVisible(false);
   };
 
-  const togglePacked = (id: string) => {
-    setItems(items.map(i =>
-      i.id === id ? { ...i, packed: !i.packed } : i
-    ));
+  const handleAddItem = () => {
+    if (newItemName.trim()) {
+      setModalVisible(true);
+    }
   };
 
-  const updateQuantity = (id: string, increment: boolean) => {
-    setItems(items.map(item => {
-      if (item.id === id) {
-        const newQuantity = increment ? item.quantity + 1 : Math.max(1, item.quantity - 1);
-        return { ...item, quantity: newQuantity };
-      }
-      return item;
-    }));
-  };
-
-  const removeItem = (id: string) => {
+  const handleRemoveItem = (id: string) => {
     Alert.alert(
       "Remove Item",
       "Are you sure you want to remove this item?",
@@ -87,12 +81,11 @@ export default function PackingListComponent() {
         {
           text: "Remove",
           style: "destructive",
-          onPress: () => setItems(items.filter(item => item.id !== id))
+          onPress: () => removeItem(id)
         }
       ]
     );
   };
-
 
   return (
     <View style={styles.container}>
@@ -106,7 +99,7 @@ export default function PackingListComponent() {
         />
         <TouchableOpacity
           style={[styles.addButton, !newItemName.trim() && styles.addButtonDisabled]}
-          onPress={addItem}
+          onPress={handleAddItem}
           disabled={!newItemName.trim()}
         >
           <Ionicons name="add" size={24} color={newItemName.trim() ? '#FFFFFF' : '#8E8E93'} />
@@ -136,7 +129,7 @@ export default function PackingListComponent() {
             item={item}
             onTogglePacked={togglePacked}
             onUpdateQuantity={updateQuantity}
-            onRemoveItem={removeItem}
+            onRemoveItem={handleRemoveItem}
           />
         )}
         keyExtractor={item => item.id}

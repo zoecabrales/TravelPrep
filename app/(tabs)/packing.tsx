@@ -1,10 +1,5 @@
-import PackingListComponent from '../components/PackingListComponents';
-import { View } from 'react-native';
+import PackingScreen from '../../screens/PackingScreen';
 
-export default function PackingScreen() {
-  return (
-    <View style={{ flex: 1 }}>
-      <PackingListComponent />
-    </View>
-  );
+export default function PackingRoute() {
+  return <PackingScreen />;
 }
