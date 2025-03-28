@@ -6,8 +6,8 @@ TravelPrep is a modern React Native mobile application that helps travelers orga
 ## Screenshots
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="assets/images/packingListComponentImg.PNG" width="30%" alt="Home Screen" />
   <img src="assets/images/homeScreenImg.PNG" width="30%" alt="Packing List" />
+  <img src="assets/images/packingListComponentImg.PNG" width="30%" alt="Home Screen" />
   <img src="assets/images/profileImg.PNG" width="30%" alt="Profile Screen" />
 </div>
 *Replace with your actual screenshot image URLs*
